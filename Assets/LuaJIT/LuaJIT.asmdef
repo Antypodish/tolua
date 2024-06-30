@@ -1,0 +1,21 @@
+{
+    "name": "LuaJIT",
+    "rootNamespace": "",
+    "references": [
+        "GUID:084fe7552627fea4199d433875ffd1c1"
+    ],
+    "includePlatforms": [
+        "Editor",
+        "LinuxStandalone64",
+        "macOSStandalone",
+        "WindowsStandalone64"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

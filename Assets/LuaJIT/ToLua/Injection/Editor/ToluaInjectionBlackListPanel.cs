@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+
+using System;
 using System.Xml;
 using System.IO;
 using System.Linq;
@@ -385,3 +387,5 @@ public class InjectionBlackListGenerator : EditorWindow
         AssetDatabase.Refresh();
     }
 }
+
+#endif

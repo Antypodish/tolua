@@ -22,6 +22,9 @@ SOFTWARE.
 //打开开关没有写入导出列表的纯虚类自动跳过
 //#define JUMP_NODEFINED_ABSTRACT         
 
+
+#if UNITY_EDITOR
+
 using UnityEngine;
 using UnityEditor;
 using System;
@@ -984,7 +987,7 @@ public static class ToLuaMenu
         ClearAllLuaFiles();
         string destDir = Application.dataPath + "/Resources" + "/Lua";
         CopyLuaBytesFiles(LuaConst.luaDir, destDir);
-        CopyLuaBytesFiles(LuaConst.toluaDir, destDir);
+        CopyLuaBytesFiles(LuaConst.assetsToLuaDir, destDir);
         AssetDatabase.Refresh();
         Debug.Log("Copy lua files over");
     }
@@ -995,7 +998,7 @@ public static class ToLuaMenu
         ClearAllLuaFiles();
         string destDir = Application.persistentDataPath + "/" + GetOS() + "/Lua";
         CopyLuaBytesFiles(LuaConst.luaDir, destDir, false);
-        CopyLuaBytesFiles(LuaConst.toluaDir, destDir, false);
+        CopyLuaBytesFiles(LuaConst.assetsToLuaDir, destDir, false);
         AssetDatabase.Refresh();
         Debug.Log("Copy lua files over");
     }
@@ -1072,7 +1075,7 @@ public static class ToLuaMenu
         Process proc = Process.Start(tempDir + "/Build.bat");
         proc.WaitForExit();
         CopyLuaBytesFiles(tempDir + "/Out/", destDir, false, "*.lua.bytes");
-        CopyLuaBytesFiles(LuaConst.toluaDir, destDir);
+        CopyLuaBytesFiles(LuaConst.assetsToLuaDir, destDir);
         
         Directory.Delete(tempDir, true);        
         AssetDatabase.Refresh();
@@ -1091,7 +1094,7 @@ public static class ToLuaMenu
         CopyLuaBytesFiles(LuaConst.luaDir, tempDir, false);
         Process proc = Process.Start(tempDir + "/Build.bat");
         proc.WaitForExit();        
-        CopyLuaBytesFiles(LuaConst.toluaDir, destDir, false);
+        CopyLuaBytesFiles(LuaConst.assetsToLuaDir, destDir, false);
 
         path = tempDir + "/Out/";
         string[] files = Directory.GetFiles(path, "*.lua.bytes");
@@ -1127,7 +1130,7 @@ public static class ToLuaMenu
         }        
 #endif
         CopyLuaBytesFiles(LuaConst.luaDir, tempDir);
-        CopyLuaBytesFiles(LuaConst.toluaDir, tempDir);
+        CopyLuaBytesFiles(LuaConst.assetsToLuaDir, tempDir);
 
         AssetDatabase.Refresh();
         List<string> dirs = new List<string>();
@@ -1183,7 +1186,7 @@ public static class ToLuaMenu
         CopyLuaBytesFiles(LuaConst.luaDir, tempDir, false);
         Process proc = Process.Start(tempDir + "/Build.bat");
         proc.WaitForExit();
-        CopyLuaBytesFiles(LuaConst.toluaDir, tempDir + "/Out");
+        CopyLuaBytesFiles(LuaConst.assetsToLuaDir, tempDir + "/Out");
 
         AssetDatabase.Refresh();
 
@@ -1444,3 +1447,5 @@ public static class ToLuaMenu
         return StringBuilderCache.GetStringAndRelease(sb);
     }
 }
+
+#endif

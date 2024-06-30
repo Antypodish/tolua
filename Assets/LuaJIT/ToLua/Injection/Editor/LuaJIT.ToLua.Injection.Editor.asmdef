@@ -1,0 +1,19 @@
+{
+    "name": "LuaJIT.ToLua.Injection.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ff3dabd44e160c1489835f414fbfe80c",
+        "GUID:cf8360758894eb546bc3362fe86abde0"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

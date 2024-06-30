@@ -3,7 +3,7 @@
 public static class LuaConst
 {
 
-    public static string toluaDir = Application.dataPath + "/LuaJIT/ToLua/Lua";        //tolua
+    public static string assetsToLuaDir = Application.dataPath + "/../Lua";        //tolua
 
 #if UNITY_EDITOR
     public static string luaDir = Application.dataPath + "/../Lua";                //lua

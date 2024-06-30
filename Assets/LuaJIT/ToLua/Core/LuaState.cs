@@ -189,13 +189,13 @@ namespace LuaInterface
                     throw new LuaException(msg);
                 }
 
-                if (!Directory.Exists(LuaConst.toluaDir))
+                if (!Directory.Exists(LuaConst.assetsToLuaDir))
                 {
-                    string msg = string.Format("toluaDir path not exists: {0}, configer it in LuaConst.cs", LuaConst.toluaDir);
+                    string msg = string.Format("toluaDir path not exists: {0}, configer it in LuaConst.cs", LuaConst.assetsToLuaDir);
                     throw new LuaException(msg);
                 }
 
-                AddSearchPath(LuaConst.toluaDir);
+                AddSearchPath(LuaConst.assetsToLuaDir);
                 AddSearchPath(LuaConst.luaDir);
 #endif
                 if (LuaFileUtils.Instance.GetType() == typeof(LuaFileUtils))

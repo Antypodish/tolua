@@ -2,8 +2,14 @@
 
 public static class LuaConst
 {
-    public static string luaDir = Application.dataPath + "/LuaJIT/Lua";                //lua逻辑代码目录
-    public static string toluaDir = Application.dataPath + "/LuaJIT/ToLua/Lua";        //tolua lua文件目录
+
+    public static string toluaDir = Application.dataPath + "/LuaJIT/ToLua/Lua";        //tolua
+
+#if UNITY_EDITOR
+    public static string luaDir = Application.dataPath + "/../Lua";                //lua
+#else
+    public static string luaDir = Application.dataPath + "/Lua";                //lua
+#endif
 
 #if UNITY_STANDALONE
     public static string osDir = "Win";
@@ -15,16 +21,16 @@ public static class LuaConst
     public static string osDir = "";        
 #endif
 
-    public static string luaResDir = string.Format("{0}/{1}/Lua", Application.persistentDataPath, osDir);      //手机运行时lua文件下载目录    
+    public static string luaResDir = string.Format("{0}/{1}/Lua", Application.persistentDataPath, osDir); 
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN    
-    public static string zbsDir = "D:/ZeroBraneStudio/lualibs/mobdebug";        //ZeroBraneStudio目录       
+    public static string zbsDir = "D:/ZeroBraneStudio/lualibs/mobdebug";        //ZeroBraneStudio     
 #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 	public static string zbsDir = "/Applications/ZeroBraneStudio.app/Contents/ZeroBraneStudio/lualibs/mobdebug";
 #else
     public static string zbsDir = luaResDir + "/mobdebug/";
 #endif    
 
-    public static bool openLuaSocket = true;            //是否打开Lua Socket库
-    public static bool openLuaDebugger = false;         //是否连接lua调试器
+    public static bool openLuaSocket = true;            // Lua Socket
+    public static bool openLuaDebugger = false;         // Lua debugger
 }

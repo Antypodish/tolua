@@ -540,9 +540,11 @@ public static class LuaBinder
 		{
 			LuaState state = LuaState.Get(L);
 			state.BeginPreModule("UnityEngine");
+#if UNITY_EDITOR
 			UnityEngine_MeshRendererWrap.Register(state);
 			int reference = state.GetMetaReference(typeof(UnityEngine.MeshRenderer));
 			state.EndPreModule(L, reference);
+#endif
 			return 1;
 		}
 		catch(Exception e)
